@@ -1,0 +1,14 @@
+# Ignore local TF stuff
+.terraform/
+.terraform.lock.hcl
+
+# Ignore TF variables, since they may contain secrets.
+*.tfvars
+
+# Ignore local TF state.
+*.tfstate
+*.tfstate.backup
+
+# Ignore local kubeconfig files
+*.kubeconfig
+
