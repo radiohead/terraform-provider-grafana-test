@@ -1,55 +1,46 @@
-# Current dashboard resource.
-resource "grafana_dashboard" "test" {
-  # Read dashboard data from file.
-  config_json = file("${path.module}/dashboards/test.json")
+resource "grafana_dashboard_dashboard_v0alpha1" "my_dashboard" {
+  metadata {
+    # [REQUIRED]
+    # Specify UID.
+    uid = "my_dashboard"
 
-  # [OPTIONAL] Customize folder.
-  folder = grafana_folder.test_folder.uid
+    # [OPTIONAL]
+    # Customize folder.
+    folder_uid = grafana_folder.test_folder.uid
+  }
 
-  # [OPTIONAL] Overwrite if exists.
-  overwrite = true
-}
+  spec {
+    json = file("${path.module}/dashboards/my_dashboard.json")
 
-# New dashboard resource.
-# TODO: add grafana_group_kind_version naming scheme
-resource "grafana_dashboards_dashboard" "my_dashboard" {
-  # TODO: Wrap into metadata
-  # metadata = {
+    # [OPTIONAL]
+    # Customize title.
+    # If not set, the title will be derived from the JSON spec.
+    title = "My Dashboard"
 
-  # Specify UID.
-  uid = "my_dashboard"
+    # [OPTIONAL]
+    # Customize tags.
+    # If not set, the tags will be derived from the JSON spec.
+    tags = [
+      "one",
+      "two",
+      "three",
+    ]
+  }
 
-  # [OPTIONAL] Customize folder.
-  folder_uid = grafana_folder.test_folder.uid
-  # }
-
-  # What else? Anything that goes to metadata and is customizable by the user can go here.
-
-  # Read dashboard spec from file.
-  spec = file("${path.module}/dashboards/my_dashboard.json")
-
-  # Specify dashboard title.
-  title = "My Other Dashboard"
-
-  # [OPTIONAL] Customize tags.
-  tags = [
-    "one",
-    "two",
-    "three",
-    "four"
-  ]
-
-  # Some options, to control the behaviour.
+  # [OPTIONAL]
+  # These options are used to control the behaviour of the resource provisioning.
   options {
-    # [OPTIONAL] Overwrite regardless of resourceVersion in the state.
+    # [OPTIONAL]
+    # Overwrite regardless of resourceVersion in the state.
     overwrite = true
 
     # [OPTIONAL]
-    # Use client-side validation if true (by default).
-    # If false, will use server-side validation only.
-    validate = false
+    # Use client-side validation if set to true.
+    # Otherwise will use server-side validation only.
+    validate = true
 
-    # [OPTIONAL] Lint the dashboard using https://github.com/grafana/dashboard-linter.
+    # [OPTIONAL]
+    # Lint the dashboard using https://github.com/grafana/dashboard-linter.
     lint_rules = [
       # "template-datasource-rule",
       # "template-job-rule",
@@ -67,7 +58,35 @@ resource "grafana_dashboards_dashboard" "my_dashboard" {
       # "target-job-rule",
       # "target-instance-rule",
       # "target-counter-agg-rule",
-      # "uneditable-dashboard"
+      "uneditable-dashboard"
     ]
   }
+}
+
+resource "grafana_dashboard_dashboard_v0alpha1" "new_dashboard" {
+  metadata {
+    uid        = "beao3u53hd3i8b"
+    folder_uid = grafana_folder.other_test_folder.uid
+  }
+
+  spec {
+    json = file("${path.module}/dashboards/new_dashboard.json")
+  }
+
+  options {
+    overwrite = true
+    validate  = true
+  }
+}
+
+# Current dashboard resource.
+resource "grafana_dashboard" "test" {
+  # Read dashboard data from file.
+  config_json = file("${path.module}/dashboards/test.json")
+
+  # [OPTIONAL] Customize folder.
+  folder = grafana_folder.test_folder.uid
+
+  # [OPTIONAL] Overwrite if exists.
+  overwrite = true
 }

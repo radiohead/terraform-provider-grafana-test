@@ -7,7 +7,7 @@
 
 # Ignore local TF state.
 *.tfstate
-*.tfstate.backup
+*.backup
 
 # Ignore local kubeconfig files
 *.kubeconfig

@@ -15,7 +15,7 @@
       }
     ]
   },
-  "editable": true,
+  "editable": false,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "links": [],
@@ -1183,8 +1183,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "My Other Dashboard",
+  "title": "My Dashboard",
   "uid": "my_dashboard",
-  "version": 5,
   "weekStart": ""
 }
