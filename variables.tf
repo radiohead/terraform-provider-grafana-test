@@ -9,8 +9,20 @@ variable "grafana_url" {
   default     = "https://localhost:3000/"
 }
 
-variable "insecure_skip_verify" {
-  type        = bool
-  description = "[OPTIONAL] Skip TLS verification."
-  default     = true
+variable "grafana_tls_cert" {
+  type        = string
+  description = "[OPTIONAL] Grafana client certificate."
+  default     = ""
+}
+
+variable "grafana_tls_key" {
+  type        = string
+  description = "[OPTIONAL] Grafana client certificate key."
+  default     = ""
+}
+
+variable "grafana_tls_ca" {
+  type        = string
+  description = "[OPTIONAL] Grafana CA certificate."
+  default     = ""
 }
