@@ -1,4 +1,4 @@
-resource "grafana_playlist_playlist_v0alpha1" "my_playlist" {
+resource "grafana_apps_playlist_playlist_v0alpha1" "my_playlist" {
   metadata {
     uid = "my_playlist"
   }
@@ -9,11 +9,11 @@ resource "grafana_playlist_playlist_v0alpha1" "my_playlist" {
     items = [
       {
         type  = "dashboard_by_uid"
-        value = grafana_dashboard_dashboard_v1alpha1.my_dashboard.metadata.uid
+        value = grafana_apps_dashboard_dashboard_v1alpha1.my_dashboard.metadata.uid
       },
       {
         type  = "dashboard_by_uid"
-        value = grafana_dashboard_dashboard_v1alpha1.new_dashboard.metadata.uid
+        value = grafana_apps_dashboard_dashboard_v1alpha1.new_dashboard.metadata.uid
       },
     ]
   }
