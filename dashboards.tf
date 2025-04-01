@@ -1,12 +1,12 @@
-resource "grafana_apps_dashboard_dashboard_v1alpha1" "my_dashboard" {
+resource "grafana_apps_dashboard_dashboard_v1alpha1" "test_dashboard_one" {
   metadata {
-    uid        = "my_dashboard"
-    folder_uid = grafana_folder.test_folder.uid
+    uid        = "test_dashboard_one"
+    folder_uid = grafana_folder.test_folder_one.uid
   }
 
   spec {
-    json  = file("${path.module}/dashboards/my_dashboard.json")
-    title = "My Dashboard"
+    json  = file("${path.module}/dashboards/test_dashboard_one.json")
+    title = "Test Dashboard One"
     tags = [
       "one",
       "two",
@@ -19,14 +19,14 @@ resource "grafana_apps_dashboard_dashboard_v1alpha1" "my_dashboard" {
   }
 }
 
-resource "grafana_apps_dashboard_dashboard_v1alpha1" "new_dashboard" {
+resource "grafana_apps_dashboard_dashboard_v1alpha1" "test_dashboard_two" {
   metadata {
-    uid        = "beao3u53hd3i8b"
-    folder_uid = grafana_folder.other_test_folder.uid
+    uid        = "test_dashboard_two"
+    folder_uid = grafana_folder.test_folder_two.uid
   }
 
   spec {
-    json = file("${path.module}/dashboards/new_dashboard.json")
+    json = file("${path.module}/dashboards/test_dashboard_two.json")
   }
 
   options {

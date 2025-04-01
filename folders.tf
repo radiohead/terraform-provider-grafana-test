@@ -1,11 +1,9 @@
-# Test folder.
-resource "grafana_folder" "test_folder" {
-  uid   = "test_folder"
-  title = "Test Folder"
+resource "grafana_folder" "test_folder_one" {
+  uid   = "test_folder_one"
+  title = "Test Folder One"
 }
 
-# Other test folder.
-resource "grafana_folder" "other_test_folder" {
-  uid   = "ceb91xv65exvkf"
-  title = "Other Test Folder"
+resource "grafana_folder" "test_folder_two" {
+  uid   = "test_folder_two"
+  title = "Test Folder Two"
 }
