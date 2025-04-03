@@ -69,8 +69,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -97,6 +96,7 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
@@ -112,12 +112,15 @@
     }
   ],
   "preload": false,
-  "schemaVersion": 40,
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": []
   },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
   "timepicker": {},
-  "timezone": "browser",
-  "title": "Test Dashboard Two"
+  "timezone": "browser"
 }
