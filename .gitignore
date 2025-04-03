@@ -11,4 +11,3 @@
 
 # Ignore local kubeconfig files
 *.kubeconfig
-
