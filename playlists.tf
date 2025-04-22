@@ -16,11 +16,11 @@ resource "grafana_apps_playlist_playlist_v0alpha1" "test_playlist" {
     items = [
       {
         type  = "dashboard_by_uid"
-        value = grafana_dashboard.test_dashboard_one.uid
+        value = grafana_dashboard.test_dashboard_old.uid
       },
       {
         type  = "dashboard_by_uid"
-        value = grafana_apps_dashboard_dashboard_v1alpha1.test_dashboard_two.metadata.uid
+        value = grafana_apps_dashboard_dashboard_v1alpha1.test_dashboard_new.metadata.uid
       },
     ]
   }
