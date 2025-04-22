@@ -2,6 +2,7 @@ terraform {
   required_providers {
     grafana = {
       source = "grafana/grafana"
+      version = "~> 3.22.3"
     }
   }
 }
@@ -16,3 +17,4 @@ provider "grafana" {
   tls_cert             = var.grafana_tls_cert
   tls_key              = var.grafana_tls_key
 }
+
