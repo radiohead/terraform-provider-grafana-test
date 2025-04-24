@@ -13,7 +13,7 @@ resource "grafana_dashboard" "test_dashboard_old" {
 }
 
 # New dashboard resource
-resource "grafana_apps_dashboard_dashboard_v1alpha1" "test_dashboard_new" {
+resource "grafana_apps_dashboard_dashboard_v1beta1" "test_dashboard_new" {
   metadata {
     # In the new dashboard resource, the UID is required.
     # This makes it easier to use deterministic (e.g. human-readable) UIDs.

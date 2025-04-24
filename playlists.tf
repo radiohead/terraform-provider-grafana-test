@@ -20,7 +20,7 @@ resource "grafana_apps_playlist_playlist_v0alpha1" "test_playlist" {
       },
       {
         type  = "dashboard_by_uid"
-        value = grafana_apps_dashboard_dashboard_v1alpha1.test_dashboard_new.metadata.uid
+        value = grafana_apps_dashboard_dashboard_v1beta1.test_dashboard_new.metadata.uid
       },
     ]
   }
