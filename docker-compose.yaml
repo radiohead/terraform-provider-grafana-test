@@ -1,0 +1,21 @@
+services:
+  grafana:
+    image: grafana/grafana:${grafana_version}
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    volumes:
+      - './testdata/grafana:/etc/grafana'
+  mysql:
+    image: mysql:${mysql_version}
+    container_name: mysql
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: grafana
+      MYSQL_USER: grafana
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    command: [ mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --innodb_monitor_enable=all, --default-authentication-plugin=mysql_native_password ]
